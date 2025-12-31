@@ -1,0 +1,40 @@
+<p-confirmDialog></p-confirmDialog>
+<p-growl [value]="msgs"></p-growl>
+<div class="ui-g containerPage">
+<div class="ui-g-12 heading">
+    <P>Product</P>
+  </div>
+
+  <div class="ui-g-12">
+
+      <img src="./assets/images/Spinner.gif" class="loader" *ngIf="loader">
+  <div class="ui-g-12" style="text-align: right;">
+    <button pButton type="button" icon="fa-plus" routerLink="/home/add-product" iconPos="left" label="Add Product"></button>
+  </div> 
+  <!-- product list data table -->
+  <div class="ui-g-12 mydt" style="text-align: right;">
+    <p-dataTable [value]="Response">
+      <p-column field="imageIcon" header="Icon" [style]="{'width':'150px'}">
+        <ng-template let-car="rowData"  pTemplate="body">
+           <img [src]="car.imageIcon" class="productIcon"  alt="Not avilable">
+       </ng-template>
+ </p-column>
+      <p-column field="productsName" header="Name" [style]="{'width':'150px'}"></p-column>
+      <p-column field="brand" [style]="{'width':'150px'}" header="Brand"></p-column>
+      <p-column field="categoryId.categoryName" [style]="{'width':'180px'}" header="Category Name"></p-column>
+      <p-column field="subCategoryId.subCategoryName" [style]="{'width':'180px'}" header="Sub Category Name"></p-column>
+       <p-column field="Periority" header="Action">
+       <ng-template let-car="rowData"  pTemplate="body">
+         <button pButton type="button" icon="fa-edit" [routerLink]="['/home/edit-product', car._id]" iconPos="left" label="Edit"></button>
+         <button pButton type="button" icon="fa-trash" iconPos="left" (click)="removeCategory(car)" label="Delete"></button>
+         <button pButton type="button" [routerLink]="['/home/sub-cat', car._id]"   label="Product Details"></button>
+      </ng-template>
+      </p-column> 
+  </p-dataTable>
+  <p-paginator rows="10" (onPageChange)="pageChange($event)" [totalRecords]="totalRecord"></p-paginator>
+  
+  </div> 
+
+
+</div>
+</div>

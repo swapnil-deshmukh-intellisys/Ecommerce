@@ -1,0 +1,62 @@
+
+<div class="row">
+<h3 align="center">Order Details </h3>   
+</div>
+
+
+
+<div style="margin-top: 19px;" *ngIf="orderList" class="box-body table-responsive"  style="overflow-x:auto;">
+<div style="margin-top:10px; width:40%;">
+<input class="form-control" type="text" [(ngModel)]="term" placeholder="Search text..."><br>
+</div>    
+  <table id="example1" class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>S No.</th>
+        <th>Order Id</th>
+        <th>User Name</th>
+        <th>Address</th>
+        <th>Phone no</th>
+        <th>Date</th>
+        <th>Order Time</th>
+        <th>ProductList</th>
+        <th>Order Amount (Rs.)</th>
+        <th>Status</th>
+        <th>Order Cancel</th>
+        <th>Action</th>
+<th>Send Message confirmation</th>
+      </tr>
+    </thead>
+   
+    <tbody>
+      <tr *ngFor="let myuser of orderList | filter:term; let i = index">
+          <td>{{i+1}}</td>
+        <td>{{myuser.orderId}}</td>
+        <td>{{myuser.shippingAddress.firstName}}
+            {{myuser.shippingAddress.lastName}}  </td>
+        <td>
+          {{myuser.shippingAddress.address}} {{myuser.shippingAddress.city}}
+ {{myuser.shippingAddress.landmark}}, {{myuser.shippingAddress.street}} <br>
+         <b> {{myuser.shippingAddress.pincode}}</b>
+
+       </td>
+        <td> {{myuser.shippingAddress.mobile}}</td>
+        <td>        </td>
+        <td>{{myuser.createdAt | date:'medium' }} </td>
+        <td><div *ngFor="let product of myuser.productList">
+               {{product.productsName}} ,
+               {{product.totalQuantity}} {{product.unit}} ,
+               Rs. {{product.price}}
+            </div>
+       
+        </td>
+        <td> Rs. {{myuser.orderTotal}} </td>
+        <td></td>
+        <td class="table-danger"><b>{{myuser.cancelationReason}}</b> <br>
+          {{myuser.cancelationDate| date:'medium'}}</td>
+        <td class="table-success">{{myuser.productList[0].status}}</td>
+          <td><button type="button" class="btn btn-warning">Send Message</button></td>      
+</tr>
+    </tbody>
+  </table>
+</div>

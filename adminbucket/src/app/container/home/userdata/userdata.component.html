@@ -1,0 +1,46 @@
+<div id="h2">
+  <h1>All Userdata</h1>
+</div>
+
+
+<div class="box-body table-responsive" *ngIf="user" style="overflow-x:auto;">
+  <div style="margin-top:10px; width:40%;">
+<input class="form-control" type="text" [(ngModel)]="term" placeholder="Search text..."><br>
+</div>
+  <table id="example1" class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Pincode</th>
+        <th>Address</th>
+         <th>status</th>     
+        <th>Mobile No</th>
+        <th>gender</th>
+        <th>Order Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let myuser of user | filter:term; let i = index">
+        <td>{{i+1}}</td>
+        <td>{{myuser.firstName}} {{myuser.lastName}}</td>
+        <td>{{myuser.email}}</td>
+        <td>{{myuser.address[0].pincode}}</td>
+<td> {{myuser.address[0].address}} {{myuser.address[0].street}}
+            {{myuser.address[0].landmark}}</td>          
+<td>
+        
+    <label class="switch">
+  <input type="checkbox" checked>
+  <span class="slider round"></span>
+</label>
+</td>
+        <td>{{myuser.mobile}}, {{myuser.address[0].mobile}} </td>
+
+        <td>{{myuser.gender}}</td>
+        <td>XXXX</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

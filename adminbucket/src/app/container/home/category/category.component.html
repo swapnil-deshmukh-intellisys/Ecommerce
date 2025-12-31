@@ -1,0 +1,28 @@
+<p-confirmDialog></p-confirmDialog>
+<p-growl [value]="msgs"></p-growl>
+<div class="ui-g containerPage">
+  <div class="ui-g-12 heading">
+    <P>Category</P>
+  </div>
+  <div class="ui-g-12">
+      <img src="./assets/images/Spinner.gif" class="loader" *ngIf="loader">
+<div class="ui-g-12" style="text-align:right;">
+  <button pButton type="button" icon="fa-plus" routerLink="/home/add-category" iconPos="left" label="Add"></button>
+</div>
+<div class="ui-g-12">
+    
+<p-dataTable [value]="Response">
+    <p-column field="slno" header="Sl No." [style]="{'width':'65px'}"></p-column>
+    <p-column field="categoryName" header="Category Name"></p-column>
+    <p-column field="isActive" [style]="{'width':'65px'}" header="Active"></p-column>
+     <p-column field="Periority" header="Action">
+     <ng-template let-car="rowData"  pTemplate="body">
+       <button pButton type="button" icon="fa-edit" (click)="editDetails(car)" iconPos="left" label="Edit"></button>
+       <button pButton type="button" icon="fa-trash" iconPos="left" (click)="removeCategory(car)" label="Delete"></button>
+       <button pButton type="button" [routerLink]="['/home/sub-cat', car._id]"   label="View sub cat"></button>
+    </ng-template>
+    </p-column> 
+</p-dataTable>
+  <p-paginator rows="10" totalRecords="100"></p-paginator>
+</div>
+</div>

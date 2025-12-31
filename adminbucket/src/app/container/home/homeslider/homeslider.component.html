@@ -1,0 +1,157 @@
+<div class="ui-g containerPage">
+  <div class="ui-g-12 heading">
+      <P>Product</P>
+  </div>
+
+  <div class="ui-g-12">
+      
+      <div class="ui-g-4" style="text-align: right;">
+          <button pButton type="button" icon="fa-plus" routerLink="/home/sliderlist" iconPos="left" label="List Slider"></button>
+      </div>
+      <div class="ui-g-4" style="text-align: right;">
+          <button pButton type="button" icon="fa-plus" routerLink="/home/updateslider" iconPos="left" label="Update  Slider"></button>
+      </div>
+  </div>
+
+<div class="ui-g-12">
+    <img src="./assets/images/Spinner.gif" class="loader" *ngIf="loader">
+    <div class="ui-g-12">
+      <form [formGroup]="bannerForm">
+        <div class="ui-g-3 positionRel">
+          <p>Brand</p>
+          <p-dropdown (onChange)="errorMessage.brand=false" formControlName="brand" [options]="brandName"></p-dropdown>
+          <!-- <p class="ErrorMessage" *ngIf="errorMessage.brand">*This field is required</p> -->
+        </div>
+        <div class="ui-g-3 positionRel">
+          <p>Category</p>
+          <p-dropdown [options]="Category" (onChange)="CategoryChange($event);errorMessage.category=false;" formControlName="categoryId"></p-dropdown>
+          <!-- <p class="ErrorMessage" *ngIf="errorMessage.category">*This field is required</p> -->
+        </div>
+        <div class="ui-g-3 positionRel">
+          <p>Sub Category</p>
+          <p-dropdown [options]="subCategory" (onChange)="errorMessage.subCategory=false" formControlName="subCategoryId"></p-dropdown>
+          <!-- <p class="ErrorMessage" *ngIf="errorMessage.subCategory">*This field is required</p> -->
+        </div>
+
+        <div class="ui-g-3">
+          <p>Inner Sub Category</p>
+          <p-dropdown [options]="innerSubCategory" formControlName="innerSubCategoryId"></p-dropdown>
+
+        </div>
+        <div class="ui-g-3 positionRel">
+          <p>Type</p>
+          <p-dropdown (onChange)="bransChange($event);errorMessage.type=false;" [options]="brandType" formControlName="type"></p-dropdown>
+          <p class="ErrorMessage" *ngIf="errorMessage.type">*This field is required</p>
+        </div>
+        <div class="ui-g-3 positionRel" *ngIf="isOffer">
+          <p>Code</p>
+          <input type="text" style="height:22px;" (keyup)="errorMessage.code=false;" formControlName="code" pInputText />
+          <p class="ErrorMessage" *ngIf="errorMessage.code">*This field is required</p>
+        </div>
+
+        <div class="ui-g-3 positionRel">
+          <p>Banner start date</p>
+          <p-calendar formControlName="startDate" (onSelect)="startDateChange($event)" [minDate]="startminDate" readonlyInput="true"></p-calendar>
+          <!-- <p class="ErrorMessage" *ngIf="errorMessage.startDate">*This field is required</p> -->
+
+        </div>
+        <div class="ui-g-3 positionRel">
+          <p>Banner end date</p>
+          <p-calendar [minDate]="endminDate" formControlName="endDate" readonlyInput="true"></p-calendar>
+          <!-- <p class="ErrorMessage" *ngIf="errorMessage.endDate">*This field is required</p> -->
+        </div>
+        <div class="ui-g-12">
+          <p>Discription</p>
+          <textarea pInputTextarea style="width: 100%;height: 100px;" formControlName="description"></textarea>
+
+        </div>
+      </form>
+      <!--  -->
+
+
+    </div>
+
+    <div class="ui-g-12 positionRel" style="text-align: right;">
+      <div class="uploaded positionRel" [style.background-image]="'url('+icon+')'">
+        <img src="./assets/images/Spinner.gif" class="loader" *ngIf="loader">
+      </div>
+      <p class="ErrorMessage" *ngIf="errorMessage.imgurl" style="top: 278px !important;left: 10px;">*No file selected</p>
+    </div>
+
+    <div class="ui-g-12" style="position: relative;">
+      <button pButton type="button" icon="fa-plus" iconPos="left" label="upload Image"></button>
+      <input #selectedPhoto accept=".jpg, .png,.jpeg,.svg" (change)="fileChangeEvent($event)" id="upload-photo" name="photo" style="cursor: pointer;"
+        type="file">
+    </div>
+    <!-- product list data table -->
+
+    <div class="ui-g-12" style="text-align:right;">
+      <button pButton type="button" (click)="saveForm()" label="Save Product"></button>
+      <button pButton type="button" routerLink="/home/banner" label="Cancel"></button>
+    </div>
+
+  </div>
+      </div>
+  
+
+
+
+
+<!-- <section class="content">
+  <div class="box-header">
+      <h3 class="box-title" align="center"> Add Slider  </h3>
+   </div>
+<div class="container">
+  <form>
+  <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+          <label class=""> Slider Name  : <span class="text-danger">*</span></label>
+          <input type="text" [(ngModel)]="bannerName" name="slider_title" class="form-control" placeholder="Slider Title" value="" />
+    
+      </div>
+      <div class="col-md-3"></div>
+  </div><br>
+  <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+          <label>  Select Image  : <span class="text-danger">*</span> </label><br>
+          <div class="custom-file">
+<input type="file"  id="customFile" #fileupload [(ngModel)]="myFile" name="myFile" (change)="fileChange($event)">
+              <label class="custom-file-label" for="customFile">Choose file</label>
+            </div>    <br>
+            <div>
+              <h4>Base64 encoded version</h4>
+              <textarea id="base64textarea" placeholder="Base64 will appear here" cols="50" rows="3" readonly>{{base64textString}}</textarea>
+          </div>
+        </div>
+      <div class="col-md-3"></div>
+  </div><br>
+  <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+          <label class=""> Slider Discription  : </label>
+          <input type="text" [(ngModel)]="bannerDiscription" name="slider_url" class="form-control" placeholder="Slider Url/Link" value=""/>      
+      </div>
+      <div class="col-md-3"></div>
+  </div><br>
+  <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+          <label class=""> Slider Brand  : </label>
+          <input type="text" [(ngModel)]="brand" name="slider_url" class="form-control" placeholder="Slider Url/Link" value=""/>   
+      </div>
+      <div class="col-md-3"></div>
+  </div><br>
+  <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+
+  <button type="submit"   (click)="onSubmit()" class="btn btn-warning btn-lg btn-block">Submit</button>
+
+</div>
+<div class="col-md-3"></div>
+</div>
+</form>
+</div>
+</section> -->

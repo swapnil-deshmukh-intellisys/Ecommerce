@@ -1,0 +1,120 @@
+<p-growl [value]="msgs"></p-growl>
+<p-overlayPanel #op1>
+  <img [src]="previewPath" alt="Galleria 1" />
+</p-overlayPanel>
+<div class="ui-g containerPage">
+  <div class="ui-g-12 heading">
+    <P>Add product</P>
+  </div>
+
+  <div class="ui-g-12 formsproduct editpage">
+    <p class="subHead">Product Details:</p>
+    <hr>
+    <form [formGroup]="productDetailsForm">
+      <div class="ui-g-12">
+        <div class="ui-g-4">
+          <p>Category</p>
+          <p-dropdown formControlName="categoryId" (onChange)="CategoryChange($event)" [options]="categorylist"></p-dropdown>
+        </div>
+        <div class="ui-g-4">
+          <p>Sub category</p>
+          <p-dropdown formControlName="subCategoryId" [options]="subcagtegorylist"></p-dropdown>
+        </div>
+        <div class="ui-g-4">
+          <p>Inner Sub Category</p>
+          <p-dropdown [options]="innersubcategorylist" formControlName="innerSubCategoryId"></p-dropdown>
+        </div>
+      </div>
+      <div class="ui-g-4">
+        <p>Product Name</p>
+        <input type="text" formControlName="productName" pInputText />
+
+      </div>
+      <div class="ui-g-4">
+        <p>Discription</p>
+        <input type="text" pInputText formControlName="productDescription" />
+
+      </div>
+      <div class="ui-g-4">
+        <p>Brand Name</p>
+        <input type="text" pInputText formControlName="brand" />
+
+      </div>
+      <div class="ui-g-4">
+          <p>Pincode</p>
+          <input type="text" pInputText formControlName="pincode" />
+        </div>
+
+      <div class="ui-g-4">
+        <p>Brand Unit Type</p>
+        <p-dropdown [options]="unittype" formControlName="unitType"></p-dropdown>
+
+      </div>
+      <!-- <div class="ui-g-12"> -->
+      <div class="ui-g-4">
+        <p>Total Inventory</p>
+        <input type="text" pInputText formControlName="totalInventory" />
+      </div>
+      <div class="ui-g-4">
+        <p>Total Unit</p>
+        <input type="text" pInputText formControlName="inventoryUnit" />
+      </div>
+    </form>
+
+    <!-- </div> -->
+    <div class="ui-g-12 ui-g-nopad">
+      <p class="subHead">Product Unit:</p>
+      <hr>
+    </div>
+    <form [formGroup]="unitForm">
+      <div formArrayName="unitList">
+        <div class="ui-g-12" *ngFor="let unit of unitList.controls; let i = index" [formGroupName]="i">
+          <!-- size line -->
+          <div class="ui-g-4">
+            <p>Quantity</p>
+            <input type="text" formControlName="quantity" pInputText />
+          </div>
+          <div class="ui-g-4">
+            <p>Unit</p>
+            <input type="text" formControlName="unit" pInputText />
+          </div>
+          <div class="ui-g-4">
+            <p>Discount</p>
+            <input type="text" formControlName="discount" pInputText />
+          </div>
+          <div class="ui-g-4">
+            <p>Price</p>
+            <input type="text" formControlName="price" pInputText />
+          </div>
+          <div class="ui-g-4">
+            <p>Inventory</p>
+            <input type="text" formControlName="inventory" pInputText />
+          </div>
+          <div class="ui-g-4 plusbttn" style="margin-top:23px;">
+            <button pButton type="button" label="+" (click)="add()"></button>
+            <button pButton type="button" style="margin-left:15px;" *ngIf="i!=0" label="X" (click)="remove(i)"></button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="ui-g-12 ui-g-nopad">
+      <p class="subHead">Product Image:</p>
+      <hr>
+
+    </div>
+    <div class="ui-g-12 uploadbttn">
+      <input #selectedPhoto accept=".jpg, .png,.jpeg" (change)="fileChangeEvent($event)" id="upload-photo" name="photo" style="cursor: pointer;width:12%"
+        type="file">
+      <button pButton type="button" label="Upload Image"></button>
+      <button pButton type="button" style="margin-left:34px;" (click)="op1.toggle($event)" [disabled]="uploaded" label="Preview Image"></button>
+    </div>
+
+    <div class="ui-g-12" style="text-align:right;">
+      <button pButton type="button" (click)="saveForm()"  label="Save Product"></button>
+      <button pButton type="button" routerLink="/home/product"  label="Cancel"></button>
+    </div>
+
+
+
+  </div>
+</div>

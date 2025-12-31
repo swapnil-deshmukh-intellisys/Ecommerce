@@ -1,0 +1,204 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+     padding: 0px;
+    margin: 0px;
+    /*background: #2C5574;*/
+}
+.heading{
+    height: 36px;
+    font-size: 25px;
+    padding: 0px;
+    font-weight: bold;
+    border-bottom: 2px solid #2c5574;
+
+}
+
+.loader{
+    z-index: 1;
+    position: absolute;
+    top: 35%;
+    left: 52%;
+    height: 135px;
+    width: 135px;
+}
+
+.heading p{
+    margin:0px;
+    padding: 0px;
+    color: #2C5574;
+}
+.containerPage{
+    height: 100%;
+    background: white;
+    padding: 2% 2%;
+    box-shadow: 0px 1px 5px #bdbdbd;
+}
+
+.submitButton .ui-button {
+    outline: none !important;
+    background: #2C5574 !important;
+    height: 38px !important;
+    width: 102% !important;
+    display: inline-block;
+    position: relative;
+    padding: 0;
+    margin-right: .1em;
+    text-decoration: none !important;
+    cursor: pointer;
+    text-align: center;
+    zoom: 1;
+    overflow: visible;
+}
+.submitButton p-button {
+    width: 100% !important;
+    display: inline-block;
+}
+
+.myButton .ui-button {
+    outline: none !important;
+    background: #2C5574 !important;
+    height: 32px !important;
+    width: 145% !important;
+    display: inline-block;
+    position: relative;
+    padding: 0;
+    margin-right: .1em;
+    text-decoration: none !important;
+    cursor: pointer;
+    text-align: center;
+    zoom: 1;
+    overflow: visible;
+}
+
+.dropdown .ui-dropdown {
+    outline: none !important;
+   color: #2C5574;
+    padding: 2%;
+    width: 102% !important;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    vertical-align: middle;
+    height: 47px;
+    border-color: #2C5574 !important;
+    background: white !important;
+}
+ .dropdown .ui-state-default {
+     padding-top: 2% !important;
+    border-left: 1px solid #2C5574 !important;
+    background: #ffffff;
+    color: #2C5574 !important;
+}
+.dropdown .ui-widget-content {
+    border: 1px solid #2C5574;
+    background: #ffffff;
+    color: #2C5574 !important;
+}
+.dropdown .ui-dropdown label.ui-dropdown-label {
+    color: #2C5574 !important;
+    cursor: pointer;
+}
+
+.ui-dialog.ui-widget .ui-dialog-titlebar .ui-dialog-title {
+    font-size: 1.25em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    width: 220px;
+}
+
+.ui-dialog {
+    width: 500px !important;
+    position: fixed;
+    padding: 0;
+}
+.ui-dialog.ui-widget .ui-dialog-titlebar {
+    color: white;
+    background: #2C5574;
+    padding: 1em 1.5em;
+}
+.ui-dialog .ui-dialog-titlebar-close {
+    color: white !important;
+    float: right;
+    padding: .125em;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+.ui-button-icon-only {
+    background: #2C5574 !important;
+    width: 2em;
+}
+
+.ui-datatable tbody > tr.ui-widget-content {
+    border-color: #d9d9d9;
+    text-transform: capitalize;
+}
+
+.editpage .ui-dialog {
+    width: 360px !important;
+    position: fixed;
+    padding: 0;
+}
+
+.editpage .ui-dropdown {
+    outline: none !important;
+    color: #2C5574;
+    padding: 0%;
+    width: 100% !important;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    vertical-align: middle;
+    height: 34px;
+    border-color: #2C5574 !important;
+    background: white !important;
+}
+.ui-datatable tbody {
+    text-align: center;
+    outline: 0;
+}
+.dashboard .ui-state-default {
+    border: 1px solid;
+    background: #2C5574 !important;
+    color: white;
+}
+/*.dashboard .ui-state-default {
+    border: 1px solid;
+    background: #2C5574 !important;
+    color: white;
+}*/
+
+.dashboard .ui-paginator .ui-paginator-page.ui-state-active {
+     background: #F0F1F4 !important; 
+    color: #2C5574;
+    border-color: #156090;
+}
+ 
+.ui-widget {
+    font-family: "Roboto", "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 16px !important;
+}
+
+.ui-confirmdialog.ui-dialog .ui-dialog-content {
+    padding: 20px 10px !important;
+}
+ 
+
+.ui-widget-header .ui-button, .ui-widget-content .ui-button, .ui-widget.ui-button, .ui-button {
+    border: 1px solid #2C5574;
+    color: #FFFFFF;
+    background: #2C5574;
+    -webkit-transition: background-color .2s;
+    transition: background-color .2s;
+}
+
+.plusbttn .ui-widget-header .ui-button, .ui-widget-content .ui-button, .ui-widget.ui-button, .ui-button {
+    height: 36px;
+    border-radius: 0px;
+    border: 1px solid #2C5574;
+    color: #FFFFFF;
+    background: #2C5574;
+    -webkit-transition: background-color .2s;
+    transition: background-color .2s;
+}

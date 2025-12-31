@@ -1,0 +1,32 @@
+.uploaded{
+    height: 295px;
+    width:100%;
+}
+.bannerCard{
+    border: 2px solid #dfdfdf;
+    border-radius: 5px;
+    box-shadow: 0px 0px 2px 2px #e8e8e8;
+    margin-top: 15px;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+th{
+    text-align: center;
+    background-color: #790101;
+    color: #fff;
+}
+tr:nth-child(even){
+    background-color: #f1f0ab;
+}
+tr:nth-child(odd){
+    background-color: #b5f3ee;
+}

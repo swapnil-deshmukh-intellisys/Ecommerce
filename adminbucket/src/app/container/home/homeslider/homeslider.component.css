@@ -1,0 +1,54 @@
+.containerPage {
+    height: 140px;
+    background: white;
+    padding: 2% 2%;
+    -webkit-box-shadow: 0px 1px 5px #bdbdbd;
+    box-shadow: 0px 1px 5px #bdbdbd;
+}
+.uploaded{
+    border: 1px solid #dfdfdf;
+    border-radius: 4px;
+    width: 100%;
+    height: 300px;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+input[type='file']{
+    height: 40px;
+    width: 145px;
+    border-radius: 50%;
+    position: absolute;
+    top: 13%;
+    left: 1%;
+    cursor: pointer;
+    z-index: 1;
+    opacity: 0;
+    display: block;
+}
+.ErrorMessage{
+    top: 75px;
+    position: absolute;
+    color: #e42323;
+    font-size: 13px;
+
+}
+.positionRel{
+    position: relative;
+}
+textarea {
+   resize: none;
+}
+
+div p{
+    margin:0px;
+}
+
+.uploaded .loader {
+    z-index: 1;
+    position: absolute;
+    top: 31%;
+    left: 43%;
+    height: 135px;
+    width: 135px;
+}

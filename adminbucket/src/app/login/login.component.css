@@ -1,0 +1,130 @@
+.background{
+    width: 100%;
+    height: 100vh;
+    background: #2C5574;
+    /*background-image: url('/assets/images/hPr3TRi.jpg');*/
+   background-repeat:no-repeat;
+   /*we want to have one single image not a repeated one*/  
+   background-size:cover
+}
+.mainDiv{
+    padding: 8% 10% 15% 10%;
+}
+.loginSize{
+   width: 100%;
+    height: 30px;
+    outline: none;
+    padding: 4px 0px 4px 10px;
+    font-size: 12px;
+    border-radius: 0px;
+}
+.loginSize:focus{
+    outline: none;
+}
+.bttn1{
+    width: 100%;
+    height: 38px;
+    background: #2ecc71;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 0px;
+    transition:color 0.25s ease;
+}
+.bttn1:hover{
+    background: #25a25a !important;
+}
+
+.lang{
+    color:white;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1220px) {
+   .loginSize{
+   width: 100% !important;
+    height: 30px;
+    outline: none;
+    padding: 4px 0px 4px 10px;
+    font-size: 12px;
+    border-radius: 0px;
+}
+.bttn1{
+    width: 100% !important;
+    height: 38px;
+    background: #2ecc71;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 0px;
+    transition:color 0.25s ease;
+}
+}
+
+/*@keyframes hvr-pulse-grow {
+  to {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
+
+.hvr-pulse-grow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+}
+
+.hvr-pulse-grow:hover{
+  -webkit-animation-name: hvr-pulse-grow;
+  animation-name: hvr-pulse-grow;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+}*/
+.hvr-bounce-in {
+ display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+.hvr-bounce-in::before{
+   content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #25a25a;
+  -webkit-transform: scaleY(0);
+  transform: scaleY(0);
+  -webkit-transform-origin: 50% 0;
+  transform-origin: 50% 0;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-bounce-in:hover{
+    color: white;
+}
+
+.hvr-bounce-in:hover:before{
+     -webkit-transform: scaleY(1);
+  transform: scaleY(1);
+}

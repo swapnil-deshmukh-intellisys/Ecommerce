@@ -1,0 +1,57 @@
+<p-growl [value]="msgs"></p-growl>
+<div class="ui-g containerPage">
+  <div class="ui-g-12 heading">
+    <P>Add category</P>
+  </div>
+  <div class="ui-g-12">
+    <img src="./assets/images/Spinner.gif" class="loader" *ngIf="loader">
+    <form [formGroup]="addForm">
+      <div class='ui-g-12'>
+        <div class='ui-g-12'>
+          <div class="ui-g-2">
+
+            <label>Category Name:</label>
+          </div>
+          <div class="ui-g-10">
+
+            <input formControlName="categoryName" type="text" pInputText />
+          </div>
+
+        </div>
+        <div class='ui-g-12'>
+          <div class="ui-g-2">
+            <label>Priority:</label>
+
+          </div>
+          <div class="ui-g-10">
+
+            <input type="text" formControlName="periority" pInputText />
+          </div>
+
+        </div>
+        <div class='ui-g-12'>
+          <div class="ui-g-2">
+            <label>Active:</label>
+
+          </div>
+          <div class="ui-g-2">
+            <p-dropdown [options]="active" formControlName="isActive"></p-dropdown>
+
+          </div>
+
+        </div>
+        <div class='ui-g-12'>
+          <div class="ui-g-2">
+
+          </div>
+          <div class="ui-g-10">
+            <button pButton type="button" (click)="saveData()" [disabled]='addForm.invalid' label="Save"></button>
+            <button pButton type="button" routerLink="/home/category" label="Cancel"></button>
+
+          </div>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>

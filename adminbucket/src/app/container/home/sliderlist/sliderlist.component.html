@@ -1,0 +1,67 @@
+<div class="ui-g-4" style="text-align: right;">
+  <button pButton type="button" icon="fa-plus" routerLink="/home/addslider" iconPos="left" label="Add Slider"></button>
+</div>
+<div class="card" style="width: 100%; margin-top:20px;">
+  <div class="card-header">
+    <h3 class="box-title" align="center">Slider List</h3>
+  </div>
+<div class="ui-g containerPage">
+  <div class="ui-g-12">
+
+    <img src="./assets/images/Spinner.gif" class="loader" *ngIf="loader">
+    
+    <!-- product list data table -->
+    <div class="ui-g-12">
+      <div class="ui-g-12 bannerCard" *ngFor="let dt of bannerList">
+        <div class="uploaded" [style.background-image]="'url('+dt.imageIcon+')'">
+
+        </div>
+        <div class="ui-g-12" style="text-align:right;">
+          <p style="display: inline;margin: 0px;float: left;font-size: 16px;text-transform: capitalize;">Type: {{dt.type}}</p>
+          <button pButton type="button" icon="fa-edit" iconPos="left" label="Edit"></button>
+          <button pButton type="button" icon="fa-trash" iconPos="left" label="Delete"></button>
+          <button pButton type="button" label="Banner Details"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br>
+  <div class="card-body">
+
+
+
+    <div class="table-responsive" style="overflow-x:auto;">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">S.No.</th>
+            <th scope="col">Slider Name</th>
+            <th scope="col">Slider Url</th>
+            <th scope="col">Slider Description</th>
+            <th scope="col">Slider brand</th>
+            <th scope="col">Slider Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let slider of Response; let i = index">
+            <td scope="row">{{i+1}}</td>
+            <td>{{slider.bannerName}}</td>
+            <td>
+              <div class="cat-img" style="width: 400px; height: 120px;">
+                <img width="100%" height="100%" src="http://132.148.22.109:1100/{{slider.imageUrl}}" />
+              </div>
+            </td>
+            <td>{{slider.bannerDiscription}}</td>
+            <td>{{slider.brand}}</td>
+            <td>
+              <button pButton type="button" (click)="editSlider(slider._id)" icon="fa-edit"></button>
+              <button pButton type="button" (click)="removeSlider(slider._id)" icon="fa-trash" iconPos="left"  label="Delete"></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>

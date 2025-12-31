@@ -1,0 +1,38 @@
+.subHead{
+    margin: 0px;
+    padding: 0px;
+    color: #2c5477;
+    font-weight: bold;
+
+}
+hr{
+    margin: 0px;
+    border: 1px solid #2c5477;
+}
+.formsproduct p{
+    margin:3px;
+    padding:0px;
+    color:#2c5477;
+}
+.formsproduct input{
+    width:100%;
+    height: 29px;
+}
+.uploadbttn{
+    text-align: center;
+    position: relative;
+}
+
+input[type='file']{
+    height: 20px;
+    width: 46px;
+    border-radius: 50%;
+    position: absolute;
+    top: 18%;
+    left: 35%;
+    cursor: pointer;
+    z-index: 1;
+    opacity: 0;
+    display: block;
+
+}

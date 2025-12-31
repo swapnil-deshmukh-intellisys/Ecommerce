@@ -1,0 +1,96 @@
+<div class="ui-g containerPage">
+    <div class="ui-g-12 heading">
+        <P>Product</P>
+    </div>
+
+    <div class="ui-g-12">
+
+        <div class="ui-g-4" style="text-align: right;">
+            <button pButton type="button" icon="fa-plus" routerLink="/home/sliderlist" iconPos="left" label="List Slider"></button>
+        </div>
+        <div class="ui-g-4" style="text-align: right;">
+            <button pButton type="button" icon="fa-plus" routerLink="/home/addslider" iconPos="left" label="Add  Slider"></button>
+        </div>
+    </div>
+</div>
+
+<div class="card" style="width: 100%; margin-top:20px;">
+    <div class="card-header">
+        <h3 class="box-title" align="center"> Update Slider </h3>
+    </div>
+    <div class="card-body">
+        <div class="container">
+            <form [formGroup]="editForm">
+                <div class="row">
+                    <div class="col-md-3">
+                        <label class=""> Slider Name :
+                            <span class="text-danger">*</span>
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+
+                        <input type="text" formControlName="bannerName"  name="slider_title" class="form-control" placeholder="Slider Name"
+                            value="" />
+
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+                <br>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <label class=""> Slider Discription : </label>
+                    </div>
+                    <div class="col-md-6">
+
+                        <input type="text" formControlName="bannerDiscription"  name="slider_url" class="form-control"
+                            placeholder="Slider Discription" value="" />
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+                <br>
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <label class=""> Slider Brand : </label>
+                    </div>
+                    <div class="col-md-6">
+
+                        <input type="text" formControlName="brand"  name="slider_url" class="form-control" placeholder="Slider Brand"
+                            value="" />
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label> Select Image :
+                            <span class="text-danger">*</span>
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="upload-photo" #selectedPhoto accept=".jpg, .png,.jpeg" 
+                                name="photo" style="cursor: pointer;width:12%;">
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+                        <!-- <input #selectedPhoto accept=".jpg, .png,.jpeg" (change)="fileChangeEvent($event)" id="upload-photo" name="photo" style="cursor: pointer;width:12%"
+                                type="file"> -->
+
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+
+                        <button type="submit"  [disabled]='editForm.invalid' label="Save" class="btn btn-success btn-lg btn-block">Submit</button>
+
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
