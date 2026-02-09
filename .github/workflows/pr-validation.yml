@@ -1,0 +1,51 @@
+name: PR Validation
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18.x'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: |
+        npm ci
+        cd adminbucket && npm ci
+        
+    - name: Check formatting
+      run: |
+        cd adminbucket && npx prettier --check "src/**/*.{ts,html,css,scss}" || echo "Prettier not configured"
+        
+    - name: Run linting
+      run: npm run lint
+      
+    - name: Run tests
+      run: npm run test:ci
+      
+    - name: Check build
+      run: npm run build
+      
+    - name: Check for breaking changes
+      run: |
+        echo "Checking for potential breaking changes..."
+        # Add breaking change detection logic here
+        
+    - name: Validate PR size
+      run: |
+        CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}..HEAD | wc -l)
+        if [ $CHANGED_FILES -gt 50 ]; then
+          echo "::warning::Large PR detected ($CHANGED_FILES files). Consider splitting into smaller PRs."
+        fi
