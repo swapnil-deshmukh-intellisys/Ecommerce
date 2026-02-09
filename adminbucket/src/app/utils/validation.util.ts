@@ -1,10 +1,10 @@
 export class ValidationUtil {
-  
+
   static isValidEmail(email: string): boolean {
     if (!email || typeof email !== 'string') {
       return false;
     }
-    
+
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return emailRegex.test(email);
   }
@@ -13,10 +13,10 @@ export class ValidationUtil {
     if (!phone || typeof phone !== 'string') {
       return false;
     }
-    
+
     // Remove all non-digit characters for validation
     const cleanPhone = phone.replace(/\D/g, '');
-    
+
     // Check if it's a valid phone number (10-15 digits)
     return cleanPhone.length >= 10 && cleanPhone.length <= 15;
   }
@@ -25,11 +25,11 @@ export class ValidationUtil {
     if (value === null || value === undefined) {
       return false;
     }
-    
+
     if (typeof value === 'string') {
       return value.trim().length > 0;
     }
-    
+
     return true;
   }
 
@@ -37,7 +37,7 @@ export class ValidationUtil {
     if (!password || typeof password !== 'string') {
       return false;
     }
-    
+
     // Password must be at least 8 characters with at least one uppercase, one lowercase, and one number
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d@$!%*?&]{8,}$/;
     return passwordRegex.test(password);
@@ -47,8 +47,9 @@ export class ValidationUtil {
     if (!url || typeof url !== 'string') {
       return false;
     }
-    
+
     try {
+      // eslint-disable-next-line no-new
       new URL(url);
       return true;
     } catch {
@@ -64,7 +65,7 @@ export class ValidationUtil {
     if (!input || typeof input !== 'string') {
       return '';
     }
-    
+
     return input.trim().replace(/[<>]/g, '');
   }
 }

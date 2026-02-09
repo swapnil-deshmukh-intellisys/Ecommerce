@@ -46,9 +46,9 @@ export class ErrorInterceptor implements HttpInterceptor {
         }
 
         console.error('HTTP Error:', errorMessage, error);
-        
+
         // Return the error message to the subscriber
-        return throwError(() => new Error(errorMessage));
+        return throwError(errorMessage);
       })
     );
   }

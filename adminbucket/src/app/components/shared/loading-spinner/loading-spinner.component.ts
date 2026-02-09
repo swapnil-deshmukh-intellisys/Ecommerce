@@ -51,6 +51,6 @@ import { Component, Input } from '@angular/core';
   `]
 })
 export class LoadingSpinnerComponent {
-  @Input() isLoading: boolean = false;
-  @Input() message: string = 'Loading...';
+  @Input() isLoading = false;
+  @Input() message = 'Loading...';
 }

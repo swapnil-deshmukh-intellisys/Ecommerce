@@ -44,7 +44,7 @@ describe('AuthGuard', () => {
 
       expect(result).toBe(false);
       expect(authServiceSpy.isAuthenticated).toHaveBeenCalled();
-      expect(routerSpy.navigate).toHaveBeenCalledWith(['/login']);
+      expect(routerSpy.navigate).toHaveBeenCalledWith(['/login'], { queryParams: { returnUrl: undefined } });
     });
   });
 

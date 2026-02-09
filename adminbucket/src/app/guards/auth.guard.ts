@@ -6,7 +6,7 @@ import { AuthService } from '../services/auth.service';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  
+
   constructor(
     private authService: AuthService,
     private router: Router
@@ -21,10 +21,10 @@ export class AuthGuard implements CanActivate {
     }
 
     // User is not authenticated, redirect to login page
-    this.router.navigate(['/login'], { 
-      queryParams: { returnUrl: state.url } 
+    this.router.navigate(['/login'], {
+      queryParams: { returnUrl: state.url }
     });
-    
+
     return false;
   }
 }
