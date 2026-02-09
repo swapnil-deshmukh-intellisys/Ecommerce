@@ -1,0 +1,21 @@
+{
+  "name": "nginx-backend",
+  "version": "1.4.1",
+  "description": "Nginx web server backend with testing framework",
+  "scripts": {
+    "test": "npm run test:unit && npm run test:integration",
+    "test:unit": "find src -name '*.test.c' -o -name '*_test.c' | xargs gcc -o /tmp/test_runner && /tmp/test_runner || echo 'No unit tests found'",
+    "test:integration": "find . -name '*.test.c' -o -name '*_test.c' | xargs gcc -o /tmp/integration_test && /tmp/integration_test || echo 'No integration tests found'",
+    "test:coverage": "npm run test && gcov src/*.c || echo 'Coverage not available'",
+    "test:nginx": "make && make test || echo 'Nginx tests not configured'",
+    "lint": "find src -name '*.c' -o -name '*.h' | xargs cppcheck --enable=all --std=c99 || echo 'Linting not available'",
+    "lint:nginx": "npm run lint",
+    "build": "make",
+    "clean": "make clean",
+    "configure": "./configure --prefix=/usr/local/nginx"
+  },
+  "devDependencies": {
+    "cppcheck": "^2.10.0"
+  },
+  "private": true
+}

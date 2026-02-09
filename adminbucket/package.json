@@ -7,7 +7,10 @@
     "start": "ng serve",
     "build": "ng build --prod",
     "test": "ng test",
+    "test:ci": "ng test --watch=false --browsers=ChromeHeadless --code-coverage",
+    "test:coverage": "ng test --watch=false --browsers=ChromeHeadless --code-coverage",
     "lint": "ng lint",
+    "lint:fix": "ng lint --fix",
     "e2e": "ng e2e"
   },
   "private": true,
