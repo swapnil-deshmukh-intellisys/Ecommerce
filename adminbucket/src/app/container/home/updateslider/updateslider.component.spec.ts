@@ -19,7 +19,16 @@ describe('UpdatesliderComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ UpdatesliderComponent ],
-      imports: [ ReactiveFormsModule, HttpModule, RouterTestingModule, DropdownModule, InputTextModule, ButtonModule, GrowlModule, CalendarModule ],
+      imports: [
+        ReactiveFormsModule,
+        HttpModule,
+        RouterTestingModule,
+        DropdownModule,
+        InputTextModule,
+        ButtonModule,
+        GrowlModule,
+        CalendarModule
+      ],
       providers: [ HTTPService, FormBuilder ],
       schemas: [ NO_ERRORS_SCHEMA ]
     })
@@ -29,7 +38,7 @@ describe('UpdatesliderComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(UpdatesliderComponent);
     component = fixture.componentInstance;
-    
+
     // Initialize the form group that the template expects
     const fb = TestBed.get(FormBuilder);
     component.editForm = fb.group({
@@ -37,7 +46,7 @@ describe('UpdatesliderComponent', () => {
       bannerDiscription: [''],
       brand: ['']
     });
-    
+
     fixture.detectChanges();
   });
 

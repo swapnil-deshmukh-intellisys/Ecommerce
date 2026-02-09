@@ -20,7 +20,16 @@ describe('UserdataComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ UserdataComponent, FilterPipe ],
-      imports: [ FormsModule, ReactiveFormsModule, HttpModule, RouterTestingModule, DropdownModule, InputTextModule, ButtonModule, GrowlModule ],
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        HttpModule,
+        RouterTestingModule,
+        DropdownModule,
+        InputTextModule,
+        ButtonModule,
+        GrowlModule
+      ],
       providers: [ HTTPService, ConfirmationService ],
       schemas: [ NO_ERRORS_SCHEMA ]
     })

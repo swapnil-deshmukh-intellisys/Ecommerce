@@ -8,7 +8,7 @@ export class FilterPipe implements PipeTransform {
     if (!value || !filterText) {
       return value;
     }
-    
+
     return value.filter(item => {
       // Simple filter implementation
       return JSON.stringify(item).toLowerCase().includes(filterText.toLowerCase());
