@@ -18,8 +18,9 @@
     "build:backend": "cd adminbucket/nginx-1.4.1 && make",
     "start": "cd adminbucket && npm start",
     "dev": "cd adminbucket && npx ng serve --env=dev",
-    "install:all": "npm install && cd adminbucket && npm install",
+    "install:all": "npm install && cd adminbucket && npm install --legacy-peer-deps",
     "clean": "rm -rf node_modules adminbucket/node_modules adminbucket/dist adminbucket/coverage",
+    "ci:install": "cd adminbucket && npm install --legacy-peer-deps",
     "ci:test": "npm run lint && npm run test:coverage",
     "ci:build": "npm run build"
   },
