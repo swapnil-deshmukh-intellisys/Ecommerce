@@ -14,7 +14,10 @@ module.exports = function (config) {
     ],
     client:{
       clearContext: false, // leave Jasmine Spec Runner output visible in browser
-      captureConsole: true
+      captureConsole: true,
+      mocha: {
+        timeout: 10000 // Increase timeout for CI
+      }
     },
     coverageIstanbulReporter: {
       reports: [ 'text-summary', 'lcov' ],
