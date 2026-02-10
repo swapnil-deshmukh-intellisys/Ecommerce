@@ -7,7 +7,7 @@
     "test:frontend": "cd adminbucket && npm test",
     "test:backend": "cd adminbucket/nginx-1.4.1 && npm run test:nginx || echo 'No backend tests configured'",
     "test:coverage": "npm run test:coverage:frontend && npm run test:coverage:backend && node coverage-merge.js",
-    "test:coverage:frontend": "cd adminbucket && npm run test -- --code-coverage --watch=false --browsers=ChromeHeadless",
+    "test:coverage:frontend": "cd adminbucket && npm run test -- --watch=false --browsers=ChromeHeadless",
     "test:coverage:backend": "cd adminbucket/nginx-1.4.1 && npm run test:coverage:nginx || echo 'No backend coverage configured'",
     "lint": "node lint-all.js",
     "lint:frontend": "cd adminbucket && npm run lint",

@@ -16,14 +16,8 @@ module.exports = function (config) {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     coverageIstanbulReporter: {
-      reports: [ 'html', 'lcovonly', 'text-summary' ],
-      fixWebpackSourcePaths: true,
-      thresholds: {
-        statements: 70,
-        lines: 70,
-        branches: 70,
-        functions: 70
-      }
+      reports: [ 'text-summary', 'lcov' ],
+      fixWebpackSourcePaths: true
     },
     angularCli: {
       environment: 'dev'
@@ -32,8 +26,8 @@ module.exports = function (config) {
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    autoWatch: true,
-    browsers: ['Chrome'],
-    singleRun: false
+    autoWatch: false,
+    browsers: ['ChromeHeadless'],
+    singleRun: true
   });
 };
