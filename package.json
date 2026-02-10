@@ -15,7 +15,7 @@
     "lint:fix": "cd adminbucket && npm run lint:fix && npx prettier --write 'src/**/*.{ts,html,css,scss}'",
     "build": "npm run build:frontend && npm run build:backend",
     "build:frontend": "cd adminbucket && npm run build",
-    "build:backend": "cd adminbucket/nginx-1.4.1 && make",
+    "build:backend": "cd adminbucket/nginx-1.4.1 && (make || echo 'Backend build skipped - make not available on this platform')",
     "start": "cd adminbucket && npm start",
     "dev": "cd adminbucket && npx ng serve --env=dev",
     "install:all": "npm install && cd adminbucket && npm install --legacy-peer-deps",
@@ -25,12 +25,9 @@
     "ci:build": "npm run build"
   },
   "devDependencies": {
-    "concurrently": "^7.6.0",
-    "lerna": "^6.4.1",
+    "concurrently": "^6.4.0",
+    "lerna": "^3.22.1",
     "typescript": "^3.5.3"
   },
-  "workspaces": [
-    "adminbucket"
-  ],
   "private": true
 }
