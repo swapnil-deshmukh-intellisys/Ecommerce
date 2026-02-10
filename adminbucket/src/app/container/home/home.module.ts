@@ -9,7 +9,7 @@ import { ButtonModule } from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown';
 import { GrowlModule } from 'primeng/growl';
 import { BlockUIModule } from 'primeng/blockui';
-import {DataTableModule} from 'primeng/datatable';
+import {TableModule} from 'primeng/table';
 import {RadioButtonModule} from 'primeng/radiobutton';
 import {PaginatorModule} from 'primeng/paginator';
 import {DialogModule} from 'primeng/dialog';
@@ -57,7 +57,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
         DropdownModule,
         GrowlModule,
         BlockUIModule,
-        DataTableModule,
+        TableModule,
         RadioButtonModule,
         PaginatorModule,
         DialogModule,
