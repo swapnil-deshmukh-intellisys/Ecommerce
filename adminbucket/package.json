@@ -7,8 +7,8 @@
     "start": "ng serve",
     "build": "ng build --prod",
     "test": "ng test",
-    "test:ci": "ng test --watch=false --browsers=ChromeHeadless",
-    "test:coverage": "ng test --watch=false --browsers=ChromeHeadless",
+    "test:ci": "ng test --watch=false --browsers=ChromeHeadless --no-progress",
+    "test:coverage": "ng test --watch=false --browsers=ChromeHeadless --no-progress",
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
     "e2e": "ng e2e"
