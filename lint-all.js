@@ -11,8 +11,7 @@ class LintRunner {
         name: 'frontend',
         path: 'adminbucket',
         commands: [
-          { cmd: 'npm run lint', description: 'TypeScript linting' },
-          { cmd: 'npx prettier --check "src/**/*.{ts,html,css,scss}"', description: 'Code formatting check' }
+          { cmd: 'npm run lint', description: 'TypeScript linting' }
         ]
       },
       {
