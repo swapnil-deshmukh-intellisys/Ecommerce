@@ -9,14 +9,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-   
+
   constructor(private base_path_service: HTTPService, private router: Router) {
-    
+
   }
 
   ngOnInit() {
-     
+
   }
 
-   
+
 }

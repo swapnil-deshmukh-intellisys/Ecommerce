@@ -25,7 +25,8 @@
   },
   "devDependencies": {
     "concurrently": "^7.6.0",
-    "lerna": "^6.4.1"
+    "lerna": "^6.4.1",
+    "typescript": "^3.5.3"
   },
   "workspaces": [
     "adminbucket"

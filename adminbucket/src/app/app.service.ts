@@ -13,16 +13,16 @@ export class HTTPService {
     public res: Response;
     public base_path_api: string;
     public base_path_image: string;
-    public dirName: string = "AppDownloads"
-    public downloadedId: string = "AppDownloadsID";
-    public videoDirName: string = "StatusVideoDownloads"
-    public loderImg: string = "./assets/imgs/loader.gif";
-    constructor(public http: Http) { this.base_path_api = "http://132.148.22.109:1100/"; }
+    public dirName = 'AppDownloads';
+    public downloadedId = 'AppDownloadsID';
+    public videoDirName = 'StatusVideoDownloads';
+    public loderImg = './assets/imgs/loader.gif';
+    constructor(public http: Http) { this.base_path_api = 'http://132.148.22.109:1100/'; }
     // get request
     public getRequsetOptionsUnauthorised(url: string): RequestOptions {
 
         this.headers = new Headers();
-        this.headers.append("Content-Type", "application/json");
+        this.headers.append('Content-Type', 'application/json');
         console.log(this.headers);
 
         this.requestoptions = new RequestOptions({
@@ -41,23 +41,19 @@ export class HTTPService {
                 let jsonObj: any;
                 if (res.status === 204) {
                     jsonObj = null;
-                }
-                else if (res.status === 500) {
+                } else if (res.status === 500) {
                     jsonObj = null;
+                } else if (res.status !== 204) {
+                    jsonObj = res.json();
                 }
-                else if (res.status !== 204) {
-                    jsonObj = res.json()
-                }
-                return [{ status: res.status, json: jsonObj }]
+                return [{ status: res.status, json: jsonObj }];
             })
             .catch(error => {
                 if (error.status === 403) {
                     return Observable.throw(error);
-                }
-                else if (error.status === 400) {
+                } else if (error.status === 400) {
                     return Observable.throw(error);
-                }
-                else {
+                } else {
                     return Observable.throw(error);
                 }
             });
@@ -67,44 +63,38 @@ export class HTTPService {
     public PostRequestUnauthorised(url: string, data: any): any {
 
         this.headers = new Headers();
-        this.headers.append("Content-Type", "application/json");
+        this.headers.append('Content-Type', 'application/json');
 
         this.requestoptions = new RequestOptions({
             method: RequestMethod.Post,
             url: url,
             headers: this.headers,
             body: data
-        })
+        });
 
         return this.http.request(new Request(this.requestoptions))
             .map((res: Response) => {
                 // console.log(res.status);
                 if (res.status === 201) {
-                    return [{ status: res.status, json: res.json() }]
-                }
-                else if (res.status === 205) {
-                    return [{ status: res.status, json: res.json() }]
-                }
-                else if (res.status === 200) {
-                    return [{ status: res.status, json: res.json() }]
+                    return [{ status: res.status, json: res.json() }];
+                } else if (res.status === 205) {
+                    return [{ status: res.status, json: res.json() }];
+                } else if (res.status === 200) {
+                    return [{ status: res.status, json: res.json() }];
                 }
             })
             .catch((error: any) => {
                 // console.log(error.status);
                 if (error.status === 500) {
                     return Observable.throw(error);
-                }
-                else if (error.status === 400) {
+                } else if (error.status === 400) {
                     return Observable.throw(error);
-                }
-                else if (error.status === 409) {
+                } else if (error.status === 409) {
                     return Observable.throw(error);
-                }
-                else if (error.status === 406) {
-                    ;
+                } else if (error.status === 406) {
+                    
                     return Observable.throw(error);
-                }
-                else if (error.status === 404) {
+                } else if (error.status === 404) {
                     return Observable.throw(error);
                 }
             });
@@ -160,44 +150,38 @@ export class HTTPService {
     public PutRequest(url: string, data: any): any {
 
         this.headers = new Headers();
-        this.headers.append("Content-Type", "application/json");
+        this.headers.append('Content-Type', 'application/json');
         // this.headers.append("Authorization", 'Bearer ' + localStorage.getItem('token'));
         this.requestoptions = new RequestOptions({
             method: RequestMethod.Put,
             url: url,
             headers: this.headers,
             body: data
-        })
+        });
 
         return this.http.request(new Request(this.requestoptions))
             .map((res: Response) => {
                 // console.log(res.status);
                 if (res.status === 201) {
-                    return [{ status: res.status, json: res.json() }]
-                }
-                else if (res.status === 205) {
-                    return [{ status: res.status, json: res.json() }]
-                }
-                else if (res.status === 200) {
-                    return [{ status: res.status, json: res.json() }]
+                    return [{ status: res.status, json: res.json() }];
+                } else if (res.status === 205) {
+                    return [{ status: res.status, json: res.json() }];
+                } else if (res.status === 200) {
+                    return [{ status: res.status, json: res.json() }];
                 }
             })
             .catch((error: any) => {
                 // console.log(error.status);
                 if (error.status === 500) {
                     return Observable.throw(error);
-                }
-                else if (error.status === 400) {
+                } else if (error.status === 400) {
                     return Observable.throw(error);
-                }
-                else if (error.status === 409) {
+                } else if (error.status === 409) {
                     return Observable.throw(error);
-                }
-                else if (error.status === 406) {
-                    ;
+                } else if (error.status === 406) {
+                    
                     return Observable.throw(error);
-                }
-                else if (error.status === 404) {
+                } else if (error.status === 404) {
                     return Observable.throw(error);
                 }
             });
@@ -206,74 +190,68 @@ export class HTTPService {
     public DeleteRequest(url: string): any {
 
         this.headers = new Headers();
-        this.headers.append("Content-Type", "application/json");
+        this.headers.append('Content-Type', 'application/json');
         // this.headers.append("Authorization", 'Bearer ' + localStorage.getItem('token'));
         this.requestoptions = new RequestOptions({
             method: RequestMethod.Delete,
             url: url,
             // body:data,
             headers: this.headers,
-        })
+        });
 
         return this.http.request(new Request(this.requestoptions))
             .map((res: Response) => {
                 // console.log(res.status);
                 if (res.status === 201) {
-                    return [{ status: res.status, json: res.json() }]
-                }
-                else if (res.status === 205) {
-                    return [{ status: res.status, json: res.json() }]
-                }
-                else if (res.status === 200) {
-                    return [{ status: res.status, json: res.json() }]
+                    return [{ status: res.status, json: res.json() }];
+                } else if (res.status === 205) {
+                    return [{ status: res.status, json: res.json() }];
+                } else if (res.status === 200) {
+                    return [{ status: res.status, json: res.json() }];
                 }
             })
             .catch((error: any) => {
                 // console.log(error.status);
                 if (error.status === 500) {
                     return Observable.throw(error);
-                }
-                else if (error.status === 400) {
+                } else if (error.status === 400) {
                     return Observable.throw(error);
-                }
-                else if (error.status === 409) {
+                } else if (error.status === 409) {
                     return Observable.throw(error);
-                }
-                else if (error.status === 406) {
-                    
+                } else if (error.status === 406) {
+
                     return Observable.throw(error);
-                }
-                else if (error.status === 404) {
+                } else if (error.status === 404) {
                     return Observable.throw(error);
                 }
             });
     }
 
-//userdata
+// userdata
 getUserdata() {
-    console.log("login successfully");
-    let headers = new Headers();
+    console.log('login successfully');
+    const headers = new Headers();
     // this.loadToken();
     // headers.append('Authorization', this.authToken);
     headers.append('Content-Type', 'application/json');
-    //return this.http.get('users/profile', {headers: headers})
+    // return this.http.get('users/profile', {headers: headers})
     const url = 'http://132.148.22.109:1100/user/allUser';
     return this.http.get(url, { headers: headers })
       .map(res => res.json());
   }
- //all order data
-  getAllorder(token){
-    console.log("login successfully");
-    let headers = new Headers();
+ // all order data
+  getAllorder(token) {
+    console.log('login successfully');
+    const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', token);
     const url = 'http://132.148.22.109:1100/order/allOrderAdmin';
     return this.http.get(url, { headers: headers })
-      .map(res => res.json());   
+      .map(res => res.json());
   }
-  //userdata
+  // userdata
   registerUser(user) {
-    let headers = new Headers();
+    const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     const url = 'http://132.148.22.109:1100/admin/signUp';
     return this.http.post(url, user, { headers: headers })

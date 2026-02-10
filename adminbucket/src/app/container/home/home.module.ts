@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from "@angular/common";
+import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm, ReactiveFormsModule, FormControlDirective, FormGroupDirective } from '@angular/forms';
 import { HomeComponent } from './home.component';
 // import { UploadVideoComponent } from './upload-video/upload-video.component';
@@ -27,7 +27,7 @@ import { SubCatDetailsComponent } from './sub-cat-details/sub-cat-details.compon
 import { InnerSubCatDetailsComponent } from './inner-sub-cat-details/inner-sub-cat-details.component';
 import { InnerSubCatComponent } from './inner-sub-cat/inner-sub-cat.component';
 import { AddSubCatComponent } from './add-sub-cat/add-sub-cat.component';
-import {AddProductComponent} from './add-product/add-product.component'
+import {AddProductComponent} from './add-product/add-product.component';
 import {ProductListComponent} from './product-list/product-list.component';
 import {CategoryComponent} from './category/category.component';
 import {OverlayPanelModule} from 'primeng/overlaypanel';
@@ -46,7 +46,7 @@ import { HomesliderComponent } from './homeslider/homeslider.component';
 import { SliderlistComponent } from './sliderlist/sliderlist.component';
 import { UpdatesliderComponent } from './updateslider/updateslider.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
- 
+
 @NgModule({
     imports: [
         ReactiveFormsModule, Ng2SearchPipeModule,
@@ -70,7 +70,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
         AddProductComponent,
         ProductListComponent,
         HomeComponent,
-        DashboardComponent, 
+        DashboardComponent,
         CategoryDetailsComponent,
         AddcategoryComponent,
         SubCatComponent,
@@ -93,7 +93,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
        HomesliderComponent,
        SliderlistComponent,
        UpdatesliderComponent
-         
+
     ],
     providers: [ConfirmationService],
 })

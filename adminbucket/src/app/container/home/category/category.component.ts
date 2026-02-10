@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HTTPService } from '../../../app.service';
 import { ConfirmationService } from 'primeng/api';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
@@ -9,7 +9,7 @@ import { Router } from '@angular/router'
 })
 export class CategoryComponent implements OnInit {
   Response: any;
-  loader: boolean = false;
+  loader = false;
   msgs: any;
 
   constructor(private base_path_sr: HTTPService, private cnf_service: ConfirmationService, private router: Router) { }
@@ -20,7 +20,7 @@ export class CategoryComponent implements OnInit {
 
   gettingData() {
     this.loader = true;
-    let url = this.base_path_sr.base_path_api + 'category/allCategory';
+    const url = this.base_path_sr.base_path_api + 'category/allCategory';
     this.base_path_sr.GetRequestUnauthorised(url)
       .subscribe(res => {
         this.loader = false;
@@ -28,18 +28,18 @@ export class CategoryComponent implements OnInit {
         for (let i = 0; i < this.Response.length; i++) {
           this.Response[i].slno = i + 1;
         }
-        console.log(this.Response)
-        console.log(res, 'hello response')
+        console.log(this.Response);
+        console.log(res, 'hello response');
       },
         error => {
           this.loader = false;
-          console.log(error)
-        })
+          console.log(error);
+        });
   }
 
   editDetails(car) {
     console.log(car, 'hello');
-    this.router.navigateByUrl('home/edit-category/' + car._id)
+    this.router.navigateByUrl('home/edit-category/' + car._id);
   }
 
   removeCategory(car) {
@@ -58,19 +58,19 @@ export class CategoryComponent implements OnInit {
   }
 
   removerecord(val) {
-    let url = this.base_path_sr.base_path_api + "category/deleteCategory/" + val._id;
+    const url = this.base_path_sr.base_path_api + 'category/deleteCategory/' + val._id;
     this.base_path_sr.DeleteRequest(url)
       .subscribe(res => {
         this.msgs = [];
-        this.msgs.push({ severity: 'success', summary: 'Data Deleted', detail: "Category deleted" });
+        this.msgs.push({ severity: 'success', summary: 'Data Deleted', detail: 'Category deleted' });
         console.log(res, 'response');
         this.gettingData();
       },
         error => {
           this.msgs = [];
-          this.msgs.push({ severity: 'error', summary: 'server error', detail: "some error try again" });
+          this.msgs.push({ severity: 'error', summary: 'server error', detail: 'some error try again' });
           console.log(error);
-        })
+        });
   }
 
 }

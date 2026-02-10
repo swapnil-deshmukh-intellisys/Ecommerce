@@ -19,17 +19,17 @@ export class AdddistributerComponent implements OnInit {
     const user = {
       email: this.email,
       password: this.password
-    }
+    };
     this.base_path_sr.registerUser(user).subscribe(data => {
       console.log(data);
-      console.log("data.message");
-      if(data.message=="Admin Register") {
-        
+      console.log('data.message');
+      if (data.message == 'Admin Register') {
+
         this.router.navigate(['/login']);
       } else {
-        
+
         this.router.navigate(['/register']);
       }
-    }); 
+    });
   }
 }

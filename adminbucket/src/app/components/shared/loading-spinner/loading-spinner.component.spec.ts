@@ -27,7 +27,7 @@ describe('LoadingSpinnerComponent', () => {
     it('should show spinner when loading is true', () => {
       component.isLoading = true;
       fixture.detectChanges();
-      
+
       const spinnerElement = fixture.nativeElement.querySelector('.loading-spinner');
       expect(spinnerElement).toBeTruthy();
       expect(spinnerElement.style.display).not.toBe('none');
@@ -36,7 +36,7 @@ describe('LoadingSpinnerComponent', () => {
     it('should hide spinner when loading is false', () => {
       component.isLoading = false;
       fixture.detectChanges();
-      
+
       const spinnerElement = fixture.nativeElement.querySelector('.loading-spinner');
       expect(spinnerElement.style.display).toBe('none');
     });

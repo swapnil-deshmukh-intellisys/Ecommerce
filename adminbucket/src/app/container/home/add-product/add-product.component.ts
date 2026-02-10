@@ -11,11 +11,11 @@ export class AddProductComponent implements OnInit {
   categorylist: any = [];
   subcagtegorylist: any = [];
   innersubcategorylist: any = [];
-  unittype: any = []
-  sizeArray: any = []
+  unittype: any = [];
+  sizeArray: any = [];
   unitForm: FormGroup;
   unitList: FormArray;
-  uploaded: boolean = true;
+  uploaded = true;
   msgs: any = [];
   image: any;
   previewPath: any;
@@ -23,13 +23,13 @@ export class AddProductComponent implements OnInit {
   constructor(private fb: FormBuilder, private base_path_service: HTTPService) {
     this.sizeArray.push({
       length: 1
-    })
+    });
     this.unittype.push({
       label: 'Open', value: 'open'
     },
       {
         label: 'Close', value: 'close'
-      })
+      });
     this.FormValue();
     this.productDetailsInst();
   }
@@ -46,19 +46,19 @@ export class AddProductComponent implements OnInit {
       unitType: [''],
       totalInventory: [''],
       inventoryUnit: [''],
-    })
+    });
   }
 
 
   FormValue() {
     this.unitForm = this.fb.group({
       unitList: this.addGroup()
-    })
+    });
   }
   addGroup(): FormArray {
     this.unitList = this.fb.array([
       this.addMore()
-    ])
+    ]);
     return this.unitList;
   }
 
@@ -69,7 +69,7 @@ export class AddProductComponent implements OnInit {
       discount: [''],
       price: [''],
       inventory: [''],
-    })
+    });
   }
 
 
@@ -85,35 +85,35 @@ export class AddProductComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.sizeArray, 'hello');
-    this.gettingCategory()
+    this.gettingCategory();
   }
 
   gettingCategory() {
-    let url = this.base_path_service.base_path_api + "category/categoryDropdown";
+    const url = this.base_path_service.base_path_api + 'category/categoryDropdown';
     this.base_path_service.GetRequestUnauthorised(url)
       .subscribe(res => {
-        console.log(res, 'hello res')
+        console.log(res, 'hello res');
         res[0].json.data.map(res => {
           this.categorylist.push({
             label: res.categoryName, value: res._id
-          })
-        })
+          });
+        });
       },
         error => {
-          console.log(error)
-        })
+          console.log(error);
+        });
 
   }
 
   removeIndex(i) {
-    this.sizeArray.removeAt(i)
+    this.sizeArray.removeAt(i);
 
   }
 
   addSize() {
     this.sizeArray.push({
       length: this.sizeArray.length - 1
-    })
+    });
   }
 
   fileChangeEvent($event) {
@@ -124,24 +124,24 @@ export class AddProductComponent implements OnInit {
     if (this.image) {
       this.uploaded = true;
       let filename = this.image.name;
-      filename = filename.split('.').pop()
+      filename = filename.split('.').pop();
       filename = filename.toLowerCase();
-      if (this.image.size <= 5242880 && filename == "jpeg" || this.image.size <= 5242880 && filename == "png" || this.image.size <= 5242880 && filename == "jpg") {
+      if (this.image.size <= 5242880 && filename == 'jpeg' || this.image.size <= 5242880 && filename == 'png' || this.image.size <= 5242880 && filename == 'jpg') {
 
-        let url = this.base_path_service.base_path_api + "user/uploadImage";
+        const url = this.base_path_service.base_path_api + 'user/uploadImage';
 
         return new Promise((resolve, reject) => {
 
-          var formData: any = new FormData();
-          var xhr = new XMLHttpRequest();
-          formData.append("userPhoto", this.image);
+          const formData: any = new FormData();
+          const xhr = new XMLHttpRequest();
+          formData.append('userPhoto', this.image);
           xhr.onreadystatechange = () => {
             if (xhr.readyState == 4) {
 
               if (xhr.status == 200) {
                 this.uploaded = false;
                 this.previewPath = this.base_path_service.base_path_api + xhr.response;
-                console.log(xhr.response, 'hello image')
+                console.log(xhr.response, 'hello image');
                 // this.updateDisable = false;
                 // this.profile_Image = this.base_path_service.base_path_image + JSON.parse(xhr.response).file;
                 // // if (this.isAdmin) {
@@ -152,9 +152,7 @@ export class AddProductComponent implements OnInit {
                 // // }
                 this.msgs.push({ severity: 'success', summary: '', detail: 'Profile photo updated successfully.' });
 
-              }
-
-              else {
+              } else {
 
                 this.msgs = [];
                 this.msgs.push({ severity: 'error', summary: '', detail: 'Some error occured. Try again!' });
@@ -163,25 +161,21 @@ export class AddProductComponent implements OnInit {
 
             }
 
-          }
+          };
 
-          xhr.open("Post", url);
+          xhr.open('Post', url);
           // xhr.setRequestHeader("Authorization", 'Bearer ' + access_token);
           xhr.send(formData);
 
         });
 
-      }
-
-      else if (this.image.size > 5242880) {
+      } else if (this.image.size > 5242880) {
 
         // alert("File size is greater than 5MB");
         this.msgs = [];
         this.msgs.push({ severity: 'error', summary: '', detail: 'File size is greater than 5MB' });
 
-      }
-
-      else {
+      } else {
 
         // alert('Invalid file type');
         this.msgs = [];
@@ -195,41 +189,41 @@ export class AddProductComponent implements OnInit {
   }
 
   saveForm() {
-    let data = this.productDetailsForm.value;
+    const data = this.productDetailsForm.value;
     data.userPhoto = this.previewPath;
-    data.size = this.unitForm.value.unitList
+    data.size = this.unitForm.value.unitList;
     for (let i = 0; i < data.size.length; i++) {
-      data.size[i].quantity = parseInt(data.size[i].quantity)
-      data.size[i].discount = parseInt(data.size[i].discount)
-      data.size[i].price = parseInt(data.size[i].price)
+      data.size[i].quantity = parseInt(data.size[i].quantity);
+      data.size[i].discount = parseInt(data.size[i].discount);
+      data.size[i].price = parseInt(data.size[i].price);
       if (data.size[i].inventory) {
-        data.size[i].inventory = parseInt(data.size[i].inventory)
+        data.size[i].inventory = parseInt(data.size[i].inventory);
       }
     }
-    let url = this.base_path_service.base_path_api + "product/addProduct";
+    const url = this.base_path_service.base_path_api + 'product/addProduct';
     this.base_path_service.PostRequestUnauthorised(url, data)
       .subscribe(res => {
-        console.log(res, 'hello response')
-      })
+        console.log(res, 'hello response');
+      });
     //  let unit=this.unitForm.value;
-    //  console.log(data,unit,'hello unit') 
+    //  console.log(data,unit,'hello unit')
 
   }
 
   CategoryChange(event) {
-    let url = this.base_path_service.base_path_api + "subCategory/allSubCategory/" + event.value;
+    const url = this.base_path_service.base_path_api + 'subCategory/allSubCategory/' + event.value;
     this.base_path_service.GetRequestUnauthorised(url)
       .subscribe(res => {
-        console.log(res, 'hello res')
+        console.log(res, 'hello res');
         res[0].json.data.map(res => {
           this.subcagtegorylist.push({
             label: res.subCategoryName, value: res._id
-          })
-        })
+          });
+        });
       },
         error => {
-          console.log(error)
-        })
+          console.log(error);
+        });
   }
 
   // /user/uploadImage

@@ -9,10 +9,10 @@ import { SubCatDetailsComponent } from './sub-cat-details/sub-cat-details.compon
 import { InnerSubCatDetailsComponent } from './inner-sub-cat-details/inner-sub-cat-details.component';
 import { InnerSubCatComponent } from './inner-sub-cat/inner-sub-cat.component';
 import { AddSubCatComponent } from './add-sub-cat/add-sub-cat.component';
-import { CategoryComponent } from './category/category.component'
-import { AddProductComponent } from './add-product/add-product.component'
-import { ProductListComponent } from './product-list/product-list.component'
-import {AddInnerSubCatComponent  } from './add-inner-sub-cat/add-inner-sub-cat.component'
+import { CategoryComponent } from './category/category.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import {AddInnerSubCatComponent  } from './add-inner-sub-cat/add-inner-sub-cat.component';
 import { UserdataComponent } from './userdata/userdata.component';
 import { AdddistributerComponent } from './adddistributer/adddistributer.component';
 
@@ -101,22 +101,22 @@ const appRoutes: Routes = [
                 path: 'profile', component: ProfileComponent,
             },
             {
-                path:'order',component:OrderComponent,
+                path: 'order', component: OrderComponent,
             },
             {
-                path:'notification',component:NotificationComponent,
+                path: 'notification', component: NotificationComponent,
             },
             {
-                path:'offers',component:OffersComponent,
+                path: 'offers', component: OffersComponent,
             },
             {
-                path:'delivery',component:DeliveryComponent,
+                path: 'delivery', component: DeliveryComponent,
             },
             {
-                path:'invoice',component:InvoiceComponent,
+                path: 'invoice', component: InvoiceComponent,
             },
             {
-                path:'productlist',component:ProductlistComponent,
+                path: 'productlist', component: ProductlistComponent,
             },
             {
                 path: 'sliderlist', component: SliderlistComponent,

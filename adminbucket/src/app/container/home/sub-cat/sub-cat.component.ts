@@ -12,24 +12,24 @@ export class SubCatComponent implements OnInit {
   Response: any;
   title: any;
   id: any;
-  msgs:any=[];
-  loader:boolean=false;
+  msgs: any = [];
+  loader = false;
   constructor(private base_path_sr: HTTPService, private cnf_service: ConfirmationService, private router: Router, private route: ActivatedRoute) {
     this.route.params.forEach(params => {
-      this.id = params['id']
-    })
+      this.id = params['id'];
+    });
   }
 
   ngOnInit() {
-    this.gettingData()
+    this.gettingData();
   }
 
   gettingData() {
-    this.loader=true;
-    let url = this.base_path_sr.base_path_api + "subCategory/allSubCategory/" + this.id;
+    this.loader = true;
+    const url = this.base_path_sr.base_path_api + 'subCategory/allSubCategory/' + this.id;
     this.base_path_sr.GetRequestUnauthorised(url)
       .subscribe(res => {
-        this.loader=false;
+        this.loader = false;
         this.Response = res[0].json.data;
         for (let i = 0; i < this.Response.length; i++) {
           this.Response[i].slno = i + 1;
@@ -37,9 +37,9 @@ export class SubCatComponent implements OnInit {
         console.log(res, 'hello res');
       },
         error => {
-        this.loader=false;
-          console.log(error)
-        })
+        this.loader = false;
+          console.log(error);
+        });
 
   }
 
@@ -60,19 +60,19 @@ export class SubCatComponent implements OnInit {
   }
 
   removerecord(val) {
-    let url = this.base_path_sr.base_path_api + "subCategory/deleteSubCategory/" + val._id;
+    const url = this.base_path_sr.base_path_api + 'subCategory/deleteSubCategory/' + val._id;
     this.base_path_sr.DeleteRequest(url)
       .subscribe(res => {
         this.msgs = [];
-        this.msgs.push({ severity: 'success', summary: 'Data Deleted', detail: "Category deleted" });
+        this.msgs.push({ severity: 'success', summary: 'Data Deleted', detail: 'Category deleted' });
         console.log(res, 'response');
         this.gettingData();
       },
         error => {
           this.msgs = [];
-          this.msgs.push({ severity: 'error', summary: 'server error', detail: "some error try again" });
+          this.msgs.push({ severity: 'error', summary: 'server error', detail: 'some error try again' });
           console.log(error);
-        })
+        });
   }
 
 
