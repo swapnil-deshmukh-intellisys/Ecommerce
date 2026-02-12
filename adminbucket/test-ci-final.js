@@ -1,15 +1,9 @@
 #!/usr/bin/env node
 
-// Run ng test with CI karma config and OpenSSL legacy provider flag
 const { spawn } = require('child_process');
 
-// Use npx to run ng with Node.js flag
-const testProcess = spawn('npx', [
-  '--node-arg=--openssl-legacy-provider',
-  'ng',
-  'test',
-  '--karma-config=karma.ci.conf.js'
-], {
+const testProcess = spawn('npm', ['run', 'test:ci'], {
+  stdio: 'pipe',
   shell: true
 });
 

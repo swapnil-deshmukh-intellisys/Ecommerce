@@ -7,8 +7,8 @@
     "start": "ng serve",
     "build": "ng build --prod",
     "test": "ng test",
-    "test:ci": "node test-ci-karma.js",
-    "test:coverage": "node test-ci-karma.js",
+    "test:ci": "cross-env NODE_OPTIONS=--openssl-legacy-provider ng test --karma-config=karma.ci.conf.js",
+    "test:coverage": "node test-ci-final.js",
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
     "e2e": "ng e2e"
@@ -40,6 +40,7 @@
     "@types/jasmine": "~3.3.8",
     "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
+    "cross-env": "^10.1.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "^6.4.3",
