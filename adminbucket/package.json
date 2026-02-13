@@ -7,11 +7,12 @@
     "start": "ng serve",
     "build": "ng build --prod",
     "test": "ng test",
-    "test:ci": "cross-env NODE_OPTIONS=--openssl-legacy-provider ng test --karma-config=karma.ci.conf.js",
     "test:coverage": "node test-ci-final.js",
+    "test:ci": "ng test --karma-config=karma.ci.conf.js --watch=false --browsers=ChromeHeadless",
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "patch-package"
   },
   "private": true,
   "dependencies": {
@@ -48,10 +49,12 @@
     "karma-coverage-istanbul-reporter": "^2.0.1",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "~1.4.0",
+    "patch-package": "^8.0.1",
+    "postinstall-postinstall": "^2.1.0",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
     "typescript": "~3.5.3",
-    "webpack-dev-middleware": "^5.3.4"
+    "webpack-dev-middleware": "3.7.2"
   }
 }

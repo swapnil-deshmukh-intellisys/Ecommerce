@@ -58,10 +58,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "video-status-back-ofice:build:production"
+              "browserTarget": "video-status-back-ofice:build:production"
             },
             "development": {
-              "buildTarget": "video-status-back-ofice:build:development"
+              "browserTarget": "video-status-back-ofice:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -69,13 +69,30 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "video-status-back-ofice:build"
+            "browserTarget": "video-status-back-ofice:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "test-explicit": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test-entry.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
