@@ -1,0 +1,31 @@
+diff --git a/node_modules/webpack-dev-middleware/lib/middleware.js b/node_modules/webpack-dev-middleware/lib/middleware.js
+index 431322d..1ddbccb 100644
+--- a/node_modules/webpack-dev-middleware/lib/middleware.js
++++ b/node_modules/webpack-dev-middleware/lib/middleware.js
+@@ -107,7 +107,10 @@ module.exports = function wrapper(context) {
+           res.setHeader('Content-Type', contentType);
+         }
+ 
+-        res.setHeader('Content-Length', content.length);
++        if (content) {
++    const length = Buffer.byteLength(content);
++    res.setHeader('Content-Length', length);
++  }
+ 
+         const { headers } = context.options;
+ 
+diff --git a/node_modules/webpack-dev-middleware/lib/util.js b/node_modules/webpack-dev-middleware/lib/util.js
+index 8518417..1ced8f0 100644
+--- a/node_modules/webpack-dev-middleware/lib/util.js
++++ b/node_modules/webpack-dev-middleware/lib/util.js
+@@ -124,6 +124,10 @@ module.exports = {
+   },
+ 
+   handleRangeHeaders(content, req, res) {
++  var rangeHeader = req.headers && req.headers.range;
++  if (!rangeHeader) {
++    return false;
++  }
+     // assumes express API. For other servers, need to add logic to access
+     // alternative header APIs
+     res.setHeader('Accept-Ranges', 'bytes');

@@ -9,8 +9,8 @@ import { ConfirmationService } from 'primeng/api';
 export class ProductListComponent implements OnInit {
   Response: any = [];
   totalRecord: any;
-  page: number = 1;
-  loader: boolean = false;
+  page = 1;
+  loader = false;
   msgs: any = [];
   constructor(private httpservice: HTTPService, private cnf_service: ConfirmationService) { }
 
@@ -19,29 +19,29 @@ export class ProductListComponent implements OnInit {
   }
 
 
-  
+
   gettingProducatList() {
     this.loader = true;
-    let url = this.httpservice.base_path_api + 'product/allProduct?page=' + this.page;
+    const url = this.httpservice.base_path_api + 'product/allProduct?page=' + this.page;
     this.httpservice.GetRequestUnauthorised(url)
       .subscribe(res => {
         this.loader = false;
         this.Response = res[0].json.data;
         this.totalRecord = res[0].json.totalPages;
-        console.log(res, 'hello response ')
+        console.log(res, 'hello response ');
       },
         error => {
           this.loader = false;
           this.msgs = [];
-          this.msgs.push({ severity: 'error', summary: 'server error', detail: "some error try again" });
-          console.log(error, 'hello error')
-        })
+          this.msgs.push({ severity: 'error', summary: 'server error', detail: 'some error try again' });
+          console.log(error, 'hello error');
+        });
   }
 
   pageChange(event) {
     this.page = event.page + 1;
     this.gettingProducatList();
-    console.log('page change', event)
+    console.log('page change', event);
   }
 
   removeCategory(car) {
@@ -60,19 +60,19 @@ export class ProductListComponent implements OnInit {
   }
 
   removerecord(val) {
-    let url = this.httpservice.base_path_api + "product/deleteProduct/" + val._id;
+    const url = this.httpservice.base_path_api + 'product/deleteProduct/' + val._id;
     this.httpservice.GetRequestUnauthorised(url)
       .subscribe(res => {
         this.msgs = [];
-        this.msgs.push({ severity: 'success', summary: 'Data Deleted', detail: "product deleted" });
+        this.msgs.push({ severity: 'success', summary: 'Data Deleted', detail: 'product deleted' });
         console.log(res, 'response');
         this.gettingProducatList();
       },
         error => {
           this.msgs = [];
-          this.msgs.push({ severity: 'error', summary: 'server error', detail: "some error try again" });
+          this.msgs.push({ severity: 'error', summary: 'server error', detail: 'some error try again' });
           console.log(error);
-        })
+        });
   }
 
   editDetails(car) {

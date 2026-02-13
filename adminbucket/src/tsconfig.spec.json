@@ -10,7 +10,9 @@
     ]
   },
   "files": [
-    "test.ts"
+    "test.ts",
+    "test-entry.ts",
+    "polyfills.ts"
   ],
   "include": [
     "**/*.spec.ts",

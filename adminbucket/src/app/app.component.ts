@@ -19,8 +19,8 @@ export class AppComponent {
 
     }
     setTimeout(v => {
- 
-      this.checkCredentials()
+
+      this.checkCredentials();
     }, 1000);
   }
 
